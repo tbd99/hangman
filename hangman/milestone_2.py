@@ -3,18 +3,18 @@
 
 import random 
 
-word_list = ['appple','pear','mango','peach','pineapple'] #defines list of fruits
-print(word_list)
+fruit_list = ['appple','pear','mango','peach','pineapple'] #defines list of fruits
+print(fruit_list)
 
-word = random.choice(word_list) #generates random word from given list
-print(word)
+random_fruit = random.choice(fruit_list) #generates random word from given list
+print(random_fruit)
 
 #task 3 - ask the user for an input 
-guess = input("Please enter a single letter ")
-print(guess)
+letter_guess = input("Please enter a single letter ")
+print(letter_guess)
 
 #task 4 - check that the input is a single character
-if len(list(guess)) == 1 and guess.isalpha(): #check that the input is one character and is alphabet
+if len(list(letter_guess)) == 1 and letter_guess.isalpha(): #check that the input is one character and is alphabet
     print('Good guess!')
 
 else:
