@@ -6,3 +6,9 @@ while 1 < 2: #creates infinite while loop
         break 
     else:
         print('Invalid letter. Please, enter a single alphabetical character') #otherwise prints this message and while loop continues until a valid input is given 
+import random 
+
+fruit_list = ['appple','pear','mango','peach','pineapple'] #defines list of fruits
+print(fruit_list)
+
+random_fruit = random.choice(fruit_list) #generates random word from given list
