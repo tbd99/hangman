@@ -1,9 +1,9 @@
 #code to iteratively check if the input is a valid guess 
 import random 
 
-fruit_list = ['appple','pear','mango','peach','pineapple'] #defines list of fruits
+fruit_list = ['appple','pear','mango','peach','pineapple','peach'] #defines list of fruits
 random_fruit = random.choice(fruit_list) #generates random word from given list
-print(random_fruit) #sensecheck
+#print(random_fruit) #sensecheck
 
 #define function to check if the guessed letter is in a word 
 def check_guess(letter_guess): #pass guessed letter and random word as arguments
@@ -25,6 +25,7 @@ def ask_for_input():
 
    check_guess(letter_guess)
    return letter_guess
+
 
 
 ask_for_input() #call function
