@@ -14,13 +14,11 @@ class Hangman():
         letter_guess = letter_guess.lower() #convert guess to lower case 
         if letter_guess in self.word: #checks if the guessed letter is in the word 
            print(f"Good guess! {letter_guess} is in the word.") #prints if the letter is in the word
+           self.num_letters = self.num_letters - 1  #reduce no of letters by 1     
            for letter in self.word: #loops over characters in word
                if letter_guess == letter: #if the guessed letter is a letter in the word
                    letter_index = self.word.index(letter_guess) #find index of letter in the word
-                   self.word_guessed[letter_index].replace(letter_guess) #replace a "_" with the letter at the correct position
-            self.num_letters = self.num_letters - 1  #reduce no of letters by 1      
-        
-                   
+                   self.word_guessed[letter_index] = letter_guess #replace a "_" with the guessed letter at the correct position         
         else:
            print(f"Sorry, {letter_guess} is not in the word. Try again.") #prints if the letter is not in the word
         #return letter_guess
