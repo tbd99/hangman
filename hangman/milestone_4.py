@@ -1,7 +1,5 @@
 import random 
-
-fruit_list = ['appple','pear','mango','peach','pineapple','peach'] #defines list of fruit, word to guess is chosen from here
-#random_fruit = random.choice(fruit_list) #generates random word from fruit list, the word to be guessed
+fruit_list = ['apple','pear','mango','peach','pineapple','peach'] #defines list of fruit, word to guess is chosen from here
 
 class Hangman():
     def __init__(self,fruit_list,num_lives=5):
@@ -16,26 +14,29 @@ class Hangman():
         letter_guess = letter_guess.lower() #convert guess to lower case 
         if letter_guess in self.word: #checks if the guessed letter is in the word 
            print(f"Good guess! {letter_guess} is in the word.") #prints if the letter is in the word
+           for letter in self.word: #loops over characters in word
+               if letter_guess == letter: #if the guessed letter is a letter in the word
+                   letter_index = self.word.index(letter_guess) #find index of letter in the word
+                   self.word_guessed[letter_index].replace(letter_guess) #replace a "_" with the letter at the correct position
+            self.num_letters = self.num_letters - 1  #reduce no of letters by 1      
+        
+                   
         else:
            print(f"Sorry, {letter_guess} is not in the word. Try again.") #prints if the letter is not in the word
         #return letter_guess
     def ask_for_input(self): #define function to get user input
-        while 1 < 2: #creates infinite while loop
+        while True: #creates infinite while loop
             letter_guess = input("Please enter a single letter ") #user input of letter guess 
             if len(list(letter_guess)) != 1 or (letter_guess.isalpha() == False): 
                 print('Invalid letter. Please, enter a single alphabetical character')
-            elif ((letter_guess in self.list_of_guesses) == True):
+            elif ((letter_guess in self.list_of_guesses)== True):
                 print('You already tried that letter!')
             else:
                 self.check_guess(letter_guess)
                 self.list_of_guesses.append(letter_guess)
                 #print(self.list_of_guesses)
-               
-
-        
         #return #letter_guess #returns guessed letter
     
-
 my_hangman = Hangman(fruit_list)
 my_hangman.ask_for_input()
 
