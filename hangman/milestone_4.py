@@ -20,7 +20,9 @@ class Hangman():
                    letter_index = self.word.index(letter_guess) #find index of letter in the word
                    self.word_guessed[letter_index] = letter_guess #replace a "_" with the guessed letter at the correct position         
         else:
+           self.num_lives = self.num_lives - 1 #reduces no of lives when an incorrect letter is guessed
            print(f"Sorry, {letter_guess} is not in the word. Try again.") #prints if the letter is not in the word
+           print(f"You have {self.num_lives} lives left")
         #return letter_guess
     def ask_for_input(self): #define function to get user input
         while True: #creates infinite while loop
