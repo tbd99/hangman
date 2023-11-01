@@ -1,5 +1,5 @@
 import random 
-fruit_list = ['apple','pear','mango','peach','pineapple','peach'] #defines list of fruit, word to guess is chosen from here
+fruit_list = ['pear','mango','orange','pineapple','peach'] #defines list of fruit, word to guess is chosen from here
 
 class Hangman():
     '''
@@ -33,6 +33,7 @@ class Hangman():
            self.num_lives = self.num_lives - 1 #reduces no of lives when an incorrect letter is guessed
            print(f"Sorry, {letter_guess} is not in the word. Try again.") #prints if the letter is not in the word
            print(f"You have {self.num_lives} lives left")
+        return self.num_lives, self.num_letters
         
     def ask_for_input(self): #define function to get user input
         '''
@@ -50,21 +51,28 @@ class Hangman():
                 self.list_of_guesses.append(letter_guess) #appends guessed letter to list of guessed letters
                
         
-    
-game = Hangman(fruit_list)
-game.ask_for_input()
 
 
-def play_game(fruit_list):
-   num_lives = 5
-   game = Hangman(fruit_list,num_lives)
+
+def play_game(word_list):
+   #num_lives = 5
+   game = Hangman(word_list) #,num_lives)
+   num_lives = game.num_lives
+   #print(num_lives)
+   num_letters = game.num_letters
+   #print(num_letters)
+
    while True:
        if num_lives == 0:
            print('You lost!')
-        elif num_lives > 0:
+           break
+       elif num_lives > 0:
            game.ask_for_input()
-        elif num_lives != 0 and num_letters <= 0:
+           #print(num_lives)
+           #break
+       elif num_lives != 0 and num_letters <= 0:
            print('Congratulations, you won the game!')
+           break
 
    return
 
