@@ -14,7 +14,8 @@ class Hangman():
         self.word = random.choice(fruit_list) #generate random word
         self.word_guessed = ['_'] * (len(self.word)) #create list containing '_' for each letter of the random word
         self.num_letters = len(set(list(self.word.strip()))) #no. of unique letters in a word, convert word to list of letters, convert to set to remmove duplicates, get length of set to get no of unique letters
-        list_of_guesses = [] #initialise empty list
+        self.list_of_guesses = [] #initialise empty list
+        self.num_lives = 5
     
     def check_guess(self,letter_guess): #def method to check if the guessed letter is in a word, pass guessed letter as arg
         '''
@@ -29,9 +30,9 @@ class Hangman():
                if letter_guess == letter: #if the guessed letter is a letter in the word
                    self.word_guessed[self.word.index(letter_guess)] = letter_guess #replace a "_" with the guessed letter at the correct position         
         else:
-           num_lives = num_lives - 1 #reduces no of lives when an incorrect letter is guessed
+           self.num_lives = self.num_lives - 1 #reduces no of lives when an incorrect letter is guessed
            print(f"Sorry, {letter_guess} is not in the word. Try again.") #prints if the letter is not in the word
-           print(f"You have {num_lives} lives left")
+           print(f"You have {self.num_lives} lives left")
         
     def ask_for_input(self): #define function to get user input
         '''
@@ -42,16 +43,34 @@ class Hangman():
             letter_guess = input("Please enter a single letter ") #user input of letter guess 
             if len(list(letter_guess)) != 1 or (letter_guess.isalpha() == False): #if the input is not a single alphabetical character
                 print('Invalid letter. Please, enter a single alphabetical character')
-            elif ((letter_guess in list_of_guesses)== True): #if the letter has already been guessed
+            elif ((letter_guess in self.list_of_guesses)== True): #if the letter has already been guessed
                 print('You already tried that letter!')
             else:
                 self.check_guess(letter_guess) #calls the check_guess method on the guessed letter
-                list_of_guesses.append(letter_guess) #appends guessed letter to list of guessed letters
+                self.list_of_guesses.append(letter_guess) #appends guessed letter to list of guessed letters
                
         
     
-my_hangman = Hangman(fruit_list)
-my_hangman.ask_for_input()
+game = Hangman(fruit_list)
+game.ask_for_input()
+
+
+def play_game(fruit_list):
+   num_lives = 5
+   game = Hangman(fruit_list,num_lives)
+   while True:
+       if num_lives == 0:
+           print('You lost!')
+        elif num_lives > 0:
+           game.ask_for_input()
+        elif num_lives != 0 and num_letters <= 0:
+           print('Congratulations, you won the game!')
+
+   return
+
+play_game(fruit_list)
+
+
 
 
 
