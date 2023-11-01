@@ -10,13 +10,17 @@ The user is asked to input letters as guesses one at a time, the computer will t
 the word or not, as well as updating how many lives the user has left after guessing an incorrect letter!
 In this program, each instance of the game is defined with a class and the operations are performed through the methods 
 and attributes of the defined Hangman class 
+The game is then defined as a function containing a while loop that evaluates the number of lives reamining and the  number of correct letter 
+guesses to print the outcome of the game, either you guess all the letters of the word and win, or you run out of lives and lose! 
 
 ## Installation instructions
-N/A
+No specific software/packages to be installed, this code was created using Python 3.11.4 
 
 ## Usage instructions 
 Run the code, and input single characters one at a time to try and guess the word!
 
+## License information
+License is Apache License 2.0, full details can be found in license.txt
 
 
 
