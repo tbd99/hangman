@@ -49,6 +49,8 @@ class Hangman():
             else:
                 self.check_guess(letter_guess) #calls the check_guess method on the guessed letter
                 self.list_of_guesses.append(letter_guess) #appends guessed letter to list of guessed letters
+                break #just addded
+
                
         
 
@@ -57,22 +59,22 @@ class Hangman():
 def play_game(word_list):
    #num_lives = 5
    game = Hangman(word_list) #,num_lives)
-   num_lives = game.num_lives
+   #num_lives = game.num_lives
    #print(num_lives)
-   num_letters = game.num_letters
+   #num_letters = game.num_letters
    #print(num_letters)
 
    while True:
-       if num_lives == 0:
+       if game.num_lives == 0:
            print('You lost!')
            break
-       elif num_lives > 0:
+       elif game.num_lives != 0 and game.num_letters <= 0:
+           print('Congratulations, you won the game!')
+           break
+       elif game.num_lives > 0:
            game.ask_for_input()
            #print(num_lives)
            #break
-       elif num_lives != 0 and num_letters <= 0:
-           print('Congratulations, you won the game!')
-           break
 
    return
 
