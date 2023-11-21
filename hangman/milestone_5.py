@@ -47,6 +47,7 @@ class Hangman():
         '''
         while True: #creates infinite while loop
             letter_guess = input("Please enter a single letter ") 
+            letter_guess = letter_guess.lower() #convert guess to lower case 
             if len(list(letter_guess)) != 1 or (letter_guess.isalpha() == False): #if the input is not a single alphabetical character
                 print('Invalid letter. Please, enter a single alphabetical character')
             elif ((letter_guess in self.list_of_guesses)== True): #if the letter has already been guessed
