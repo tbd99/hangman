@@ -1,5 +1,8 @@
 import random 
+
+
 fruit_list = ['pear','apple','mango','orange','pineapple','peach'] #defines list of fruit, word to guess is chosen from here
+
 
 class Hangman():
     '''
@@ -75,7 +78,9 @@ def play_game(word_list):
           
    return
 
+
 play_game(fruit_list) #initialise an instance of the play_game class to start the game 
+
 
 
 
