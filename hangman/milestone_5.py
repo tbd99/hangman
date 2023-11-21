@@ -82,10 +82,3 @@ def play_game(word_list):
 
 if __name__ == "__main__": #guard added to ensure the game only runs when the script is executed directly 
     play_game(fruit_list) #initialise an instance of the play_game class to start the game 
-
-
-
-
-
-
-
