@@ -27,18 +27,18 @@ class Hangman():
         This function is used to tell the player if the letter guessed is in the generated word.
         It takes the guessed letter as an argument and prints a message depedning on if the letter guessed is in the word and tracks the number of lives remaining.
         '''
-        letter_guess = letter_guess.lower() #convert guess to lower case 
         if letter_guess in self.word: #checks if the guessed letter is in the word 
            print(f"Good guess! {letter_guess} is in the word.") 
            self.num_letters = self.num_letters - 1  #reduce no of letters by 1     
            for letter in self.word: #loops over characters in word
                if letter_guess == letter: 
-                   self.word_guessed[self.word.index(letter_guess)] = letter_guess #replace a "_" with the guessed letter at the correct position         
+                   self.word_guessed[self.word.index(letter_guess)] = letter_guess #replace a "_" with the guessed letter at the correct position  
+           
         else:
            self.num_lives = self.num_lives - 1 #reduces no of lives when an incorrect letter is guessed
            print(f"Sorry, {letter_guess} is not in the word. Try again.") 
            print(f"You have {self.num_lives} lives left")
-        return self.num_lives, self.num_letters 
+        return self.num_lives, self.num_letters, self.word_guessed
         
     def ask_for_input(self): 
         '''
@@ -55,6 +55,7 @@ class Hangman():
             else:
                 self._check_guess(letter_guess) #calls the check_guess method on the guessed letter
                 self.list_of_guesses.append(letter_guess) #appends guessed letter to list of guessed letters
+                print(self.word_guessed) # shows game board with guesses  
                 break 
 
                
