@@ -50,7 +50,7 @@ class Hangman():
             letter_guess = letter_guess.lower() #convert guess to lower case 
             if len(list(letter_guess)) != 1 or (letter_guess.isalpha() == False): #if the input is not a single alphabetical character
                 print('Invalid letter. Please, enter a single alphabetical character')
-            elif ((letter_guess in self.list_of_guesses)== True): #if the letter has already been guessed
+            elif (letter_guess in self.list_of_guesses): #if the letter has already been guessed
                 print('You already tried that letter!')
             else:
                 self._check_guess(letter_guess) #calls the check_guess method on the guessed letter
